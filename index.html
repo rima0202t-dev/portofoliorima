@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rima Anjani | Portofolio</title>
+    <!-- Menggunakan Tailwind CSS untuk styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Menggunakan Google Fonts (Font Poppins) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Menggunakan FontAwesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden; /* Mencegah scroll menyamping */
+        }
+        
+        /* Animasi Kursor Custom (Blob bercahaya) */
+        #cursor-blob {
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(59,130,246,0.15) 0%, rgba(59,130,246,0) 70%);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none; /* Agar tidak menghalangi klik pada web */
+            z-index: -1; /* Selalu berada di belakang konten lain */
+            transition: top 0.3s ease-out, left 0.3s ease-out; /* Transisi agar pergerakan mulus */
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            900: '#1e3a8a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased selection:bg-brand-500 selection:text-white relative z-0">
+
+    <!-- Efek Cahaya / Blob yang mengikuti kursor -->
+    <div id="cursor-blob" class="hidden md:block"></div>
+
+    <!-- Navigasi -->
+    <header class="fixed w-full bg-white/80 backdrop-blur-md shadow-sm z-50 border-b border-gray-100">
+        <!-- REVISI: Menggunakan justify-between dan ml-auto agar menu merapat ke kanan -->
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            
+            <!-- Logo / Nama di Kiri -->
+            <div class="flex-shrink-0">
+                <a href="#" class="text-xl font-bold text-brand-600 tracking-tight"> PORTOFOLIO RIMA ANJANI</a>
+            </div>
+            
+            <!-- Menu Navigasi di Kanan -->
+            <nav class="hidden md:flex ml-auto space-x-8">
+                <a href="#beranda" class="text-gray-600 hover:text-brand-600 px-2 py-1 text-sm font-medium transition-colors">Beranda</a>
+                <a href="#tentang" class="text-gray-600 hover:text-brand-600 px-2 py-1 text-sm font-medium transition-colors">Tentang</a>
+                <a href="#skill" class="text-gray-600 hover:text-brand-600 px-2 py-1 text-sm font-medium transition-colors">Skill</a>
+                <a href="#pengalaman" class="text-gray-600 hover:text-brand-600 px-2 py-1 text-sm font-medium transition-colors">Pengalaman</a>
+                <a href="#kontak" class="text-gray-600 hover:text-brand-600 px-2 py-1 text-sm font-medium transition-colors">Kontak</a>
+            </nav>
+
+            <!-- Menu Mobile (Sederhana untuk mode HP, juga di kanan) -->
+            <div class="md:hidden flex items-center ml-auto">
+                <button class="text-gray-600 hover:text-brand-600 focus:outline-none">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+            
+        </div>
+    </header>
+
+    <!-- Bagian Beranda / Hero -->
+    <section id="beranda" class="pt-32 pb-20 md:pt-40 md:pb-28 px-4 flex items-center min-h-[90vh] relative">
+        <div class="max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center gap-12 relative z-10">
+            <!-- Teks -->
+            <div class="flex-1 text-center md:text-left">
+                <span class="text-brand-600 font-semibold tracking-wider uppercase text-sm mb-2 block">Halo, Selamat Datang Di Portofolio Saya!</span>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-4">
+                    Perkenalkan Saya <span class="text-brand-600">Rima Anjani</span>
+                </h1>
+                <h2 class="text-xl md:text-2xl text-gray-600 font-medium mb-6">
+                    Mahasiswi Lulusan S1 Sistem Informasi
+                </h2>
+                <p class="text-gray-500 mb-8 max-w-lg mx-auto md:mx-0 leading-relaxed">
+                    Tertarik pada eksplorasi data, pengenalan pola, dan penerapan algoritma machine learning untuk memecahkan masalah dunia nyata.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <a href="#pengalaman" class="bg-brand-600 text-white px-8 py-3 rounded-full font-medium hover:bg-brand-900 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 shadow-brand-500/30">
+                        Lihat Pengalaman Saya
+                    </a>
+                    <a href="#kontak" class="bg-white text-gray-700 border border-gray-200 px-8 py-3 rounded-full font-medium hover:bg-gray-50 hover:-translate-y-1 hover:shadow-md transition-all duration-300 shadow-sm">
+                        Hubungi Saya
+                    </a>
+                </div>
+            </div>
+            <!-- Foto / Ilustrasi -->
+            <div class="flex-1 flex justify-center md:justify-end group">
+                <div class="relative w-64 h-64 md:w-80 md:h-80 transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-brand-100 rounded-full blur-3xl opacity-50 group-hover:opacity-80 transition-opacity duration-500"></div>
+                    
+                    <!-- ========================================== -->
+                    <!-- CARA MENGGANTI GAMBAR PROFIL:              -->
+                    <!-- ========================================== -->
+                    <!-- 1. Simpan foto Anda di folder yang sama dengan file HTML ini (atau buat folder bernama 'images'). -->
+                    <!-- 2. Ubah atribut 'src' pada tag <img> di bawah ini menjadi nama file Anda. -->
+                    <!-- Contoh 1: <img src="foto-rima.jpg" alt="Rima Anjani" class="..."> -->
+                    <!-- Contoh 2: <img src="images/foto-rima.jpg" alt="Rima Anjani" class="..."> -->
+                    
+                    <img src="hiji.jpeg" alt="Rima Anjani" class="relative z-10 w-full h-full object-cover rounded-full border-4 border-white shadow-xl group-hover:shadow-2xl transition-shadow duration-500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- Tentang Saya -->
+        <section id="tentang" class="py-20 max-w-6xl mx-auto px-6">
+            <div class="mb-12">
+                <h2 class="text-2xl font-bold text-slate-900">Tentang Saya</h2>
+                <div class="w-12 h-1 bg-blue-600 rounded-full mt-2"></div>
+            </div>
+            
+            <div class="bg-white/70 backdrop-blur-md rounded-3xl p-8 md:p-10 border border-slate-100 shadow-xl shadow-slate-100/50 grid md:grid-cols-3 gap-8 items-center">
+                <!-- Kolom Foto di Tentang Saya -->
+                <div class="flex justify-center">
+                    <div class="w-90 h-90 md:w-100 md:h-100 rounded-2xl overflow-hidden shadow-md bg-slate-300 border border-slate-400 flex items-center justify-center">
+                        <!-- 
+                          CARA MENGGANTI FOTO TENTANG SAYA:
+                          Ganti kode di bawah dengan <img src="nama-file.jpg" class="w-full h-full object-cover">
+                        -->
+                        <div class="text-center p-4 text-slate-400">
+                            <img src="dua.jpg" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kolom Teks Deskripsi -->
+                <div class="md:col-span-2 space-y-4 text-slate-600 text-sm md:text-base leading-relaxed">
+                    <p>Perkenalkan, saya <strong>Rima Anjani</strong>, seorang mahasiswi program studi <strong>Sistem Informasi di Universitas Cipasung Tasikmalaya</strong>. Selama masa studi, saya menemukan minat yang besar terhadap bagaimana data dapat diolah menjadi informasi yang berharga.</p>
+                    <p>Fokus utama saya saat ini adalah pada bidang <strong>Data Mining</strong>. Saya sangat antusias mempelajari algoritma klasifikasi dan prediksi, dengan fokus khusus pada algoritma <strong>K-Nearest Neighbor (KNN)</strong>.</p>
+                    <p>Dalam melakukan riset dan eksperimen data, saya terbiasa menggunakan bahasa pemrograman Python yang dijalankan melalui lingkungan <strong>Google Colab</strong>. Platform ini memudahkan saya dalam memproses dataset, melakukan visualisasi data, dan membangun model machine learning yang efisien.</p>
+                </div>
+            </div>
+        </section>
+            
+            <!-- Skills / Minat -->
+             <section id="skill" class="py-20 max-w-6xl mx-auto px-6">
+                <h3 class="text-2xl font-semibold text-gray-900 mb-4">Keahlian & Minat</h3>
+                <p class="text-gray-600 mb-6">
+                    Berikut adalah beberapa keahlian dan minat saya :
+                </p>
+            <div class="flex flex-wrap gap-3 mt-8 justify-center md:justify-start">
+                <span class="px-4 py-2 bg-white text-brand-600 rounded-lg text-sm font-medium border border-brand-100 hover:bg-brand-500 hover:text-white hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-md cursor-default"><i class="fas fa-database mr-2"></i>Machine Learning</span>
+                <span class="px-4 py-2 bg-white text-brand-600 rounded-lg text-sm font-medium border border-brand-100 hover:bg-brand-500 hover:text-white hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-md cursor-default"><i class="fab fa-python mr-2"></i>Python</span>
+                <span class="px-4 py-2 bg-white text-brand-600 rounded-lg text-sm font-medium border border-brand-100 hover:bg-brand-500 hover:text-white hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-md cursor-default"><i class="fab fa-google mr-2"></i>Google Colab</span>
+                <span class="px-4 py-2 bg-white text-brand-600 rounded-lg text-sm font-medium border border-brand-100 hover:bg-brand-500 hover:text-white hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-md cursor-default"><i class="fa-solid fa-file-word mr-2"></i>Microsoft Word</span>
+                <span class="px-4 py-2 bg-white text-brand-600 rounded-lg text-sm font-medium border border-brand-100 hover:bg-brand-500 hover:text-white hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-md cursor-default"><i class="fa-solid fa-file-excel mr-2"></i>Microsoft Excel</span>
+                <span class="px-4 py-2 bg-white text-brand-600 rounded-lg text-sm font-medium border border-brand-100 hover:bg-brand-500 hover:text-white hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-md cursor-default"><i class="fa-solid fa-file-powerpoint mr-2"></i> Microsoft PowerPoint</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bagian Proyek / Skripsi -->
+    <section id="pengalaman" class="py-20 bg-gray-50/60 backdrop-blur-sm px-4 relative">
+        <div class="max-w-6xl mx-auto relative z-10">
+            <h2 class="text-3xl font-bold text-gray-900 mb-2 text-center">Pengalaman Saya</h2>
+            <div class="w-16 h-1 bg-brand-500 mb-12 mx-auto rounded-full"></div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Kartu Proyek Skripsi - Efek Hover Group -->
+                <div class="bg-white/90 rounded-2xl overflow-hidden shadow-md border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 md:col-span-2 group">
+                    <div class="md:flex">
+                        <div class="md:w-2/5 h-48 md:h-auto bg-gray-200 relative overflow-hidden">
+                            
+                            <!-- ========================================== -->
+                            <!-- CARA MENGGANTI GAMBAR PROYEK (SKRIPSI):    -->
+                            <!-- ========================================== -->
+                            <!-- Ganti link placeholder di bawah menjadi lokasi file gambar ilustrasi skripsi Anda -->
+                            <!-- Contoh: <img src="images/screenshot-knn.png" alt="..." class="..."> -->
+                            
+                            <img src="rimaaaaaaa.jpg" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="p-8 md:w-3/5">
+                            <div class="uppercase tracking-wide text-sm text-brand-600 font-bold mb-1">Tugas Akhir / Skripsi</div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-brand-600 transition-colors duration-300">Prediksi Volume Penjualan Paving Block</h3>
+                            <p class="text-gray-600 mb-6 leading-relaxed">
+                                Proyek penelitian yang diimplementasikan pada <strong>CV Surya Perkasa</strong>. Sistem ini dibangun untuk memprediksi volume penjualan paving block di masa mendatang guna membantu manajemen inventaris dan optimalisasi produksi perusahaan. Model prediksi dikembangkan dengan menggunakan algoritma <strong>K-Nearest Neighbor (KNN)</strong> dan diproses menggunakan Python di Google Colab.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-gray-100 text-gray-600 text-xs font-semibold rounded-full">Python</span>
+                                <span class="px-3 py-1 bg-gray-100 text-gray-600 text-xs font-semibold rounded-full">KNN Algorithm</span>
+                                <span class="px-3 py-1 bg-gray-100 text-gray-600 text-xs font-semibold rounded-full">Google Colab</span>
+                                <span class="px-3 py-1 bg-gray-100 text-gray-600 text-xs font-semibold rounded-full hover:bg-brand-100 hover:text-brand-700 transition-colors">Data Mining</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Kartu Proyek Skripsi - Efek Hover Group -->
+                <div class="bg-white/90 rounded-2xl overflow-hidden shadow-md border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 md:col-span-2 group">
+                    <div class="md:flex">
+                        <div class="md:w-2/5 h-48 md:h-auto bg-gray-200 relative overflow-hidden">
+                            
+                            <!-- ========================================== -->
+                            <!-- CARA MENGGANTI GAMBAR PROYEK (SKRIPSI):    -->
+                            <!-- ========================================== -->
+                            <!-- Ganti link placeholder di bawah menjadi lokasi file gambar ilustrasi skripsi Anda -->
+                            <!-- Contoh: <img src="images/screenshot-knn.png" alt="..." class="..."> -->
+                            
+                            <img src="rimaaaaaaa.jpg" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="p-8 md:w-3/5">
+                            <div class="uppercase tracking-wide text-sm text-brand-600 font-bold mb-1">Tugas Akhir / Skripsi</div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-brand-600 transition-colors duration-300">Prediksi Volume Penjualan Paving Block</h3>
+                            <p class="text-gray-600 mb-6 leading-relaxed">
+                                Proyek penelitian yang diimplementasikan pada <strong>CV Surya Perkasa</strong>. Sistem ini dibangun untuk memprediksi volume penjualan paving block di masa mendatang guna membantu manajemen inventaris dan optimalisasi produksi perusahaan. Model prediksi dikembangkan dengan menggunakan algoritma <strong>K-Nearest Neighbor (KNN)</strong> dan diproses menggunakan Python di Google Colab.
+                            </p>
+                            </div>
+                    </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Kartu Proyek Skripsi - Efek Hover Group -->
+                <div class="bg-white/90 rounded-2xl overflow-hidden shadow-md border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 md:col-span-2 group">
+                    <div class="md:flex">
+                        <div class="md:w-2/5 h-48 md:h-auto bg-gray-200 relative overflow-hidden">
+                            
+                            <!-- ========================================== -->
+                            <!-- CARA MENGGANTI GAMBAR PROYEK (SKRIPSI):    -->
+                            <!-- ========================================== -->
+                            <!-- Ganti link placeholder di bawah menjadi lokasi file gambar ilustrasi skripsi Anda -->
+                            <!-- Contoh: <img src="images/screenshot-knn.png" alt="..." class="..."> -->
+                            
+                            <img src="rimaaaaaaa.jpg" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="p-8 md:w-3/5">
+                            <div class="uppercase tracking-wide text-sm text-brand-600 font-bold mb-1">Tugas Akhir / Skripsi</div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-brand-600 transition-colors duration-300">Prediksi Volume Penjualan Paving Block</h3>
+                            <p class="text-gray-600 mb-6 leading-relaxed">
+                                Proyek penelitian yang diimplementasikan pada <strong>CV Surya Perkasa</strong>. Sistem ini dibangun untuk memprediksi volume penjualan paving block di masa mendatang guna membantu manajemen inventaris dan optimalisasi produksi perusahaan. Model prediksi dikembangkan dengan menggunakan algoritma <strong>K-Nearest Neighbor (KNN)</strong> dan diproses menggunakan Python di Google Colab.
+                            </p>
+                            </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Kartu Proyek Skripsi - Efek Hover Group -->
+                <div class="bg-white/90 rounded-2xl overflow-hidden shadow-md border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 md:col-span-2 group">
+                    <div class="md:flex">
+                        <div class="md:w-2/5 h-48 md:h-auto bg-gray-200 relative overflow-hidden">
+                            
+                            <!-- ========================================== -->
+                            <!-- CARA MENGGANTI GAMBAR PROYEK (SKRIPSI):    -->
+                            <!-- ========================================== -->
+                            <!-- Ganti link placeholder di bawah menjadi lokasi file gambar ilustrasi skripsi Anda -->
+                            <!-- Contoh: <img src="images/screenshot-knn.png" alt="..." class="..."> -->
+                            
+                            <img src="rimaaaaaaa.jpg" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="p-8 md:w-3/5">
+                            <div class="uppercase tracking-wide text-sm text-brand-600 font-bold mb-1">Tugas Akhir / Skripsi</div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-brand-600 transition-colors duration-300">Prediksi Volume Penjualan Paving Block</h3>
+                            <p class="text-gray-600 mb-6 leading-relaxed">
+                                Proyek penelitian yang diimplementasikan pada <strong>CV Surya Perkasa</strong>. Sistem ini dibangun untuk memprediksi volume penjualan paving block di masa mendatang guna membantu manajemen inventaris dan optimalisasi produksi perusahaan. Model prediksi dikembangkan dengan menggunakan algoritma <strong>K-Nearest Neighbor (KNN)</strong> dan diproses menggunakan Python di Google Colab.
+                            </p>
+    </section>
+    <!-- Bagian Galeri Foto Grid -->
+<section class="py-20 max-w-6xl mx-auto px-6">
+    <div class="mb-12">
+        <h2 class="text-2xl font-bold text-slate-900">Galeri Foto</h2>
+        <div class="w-12 h-1 bg-blue-600 rounded-full mt-2"></div>
+        <p class="text-slate-600 text-sm mt-3">Kumpulan dokumentasi kegiatan dan aktivitas riset saya:</p>
+    </div>
+    <!-- Grid Container -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        
+        <!-- Foto 1 -->
+        <div class="bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100 group">
+            <div class="h-56 bg-slate-100 overflow-hidden flex items-center justify-center">
+                <!-- Ganti tag div di bawah dengan <img src="foto1.jpg" alt="Kegiatan 1" class="w-full h-full object-cover group-hover:scale-105 transition duration-300"> -->
+                <div class="text-center p-4 text-slate-400">
+                    <i class="fa-solid fa-image text-3xl mb-1 text-blue-500"></i>
+                    <p class="text-xs">Foto 1</p>
+                </div>
+            </div>
+            <div class="p-4">
+                <p class="text-xs text-slate-500">April 2026</p>
+                <h3 class="font-semibold text-sm text-slate-800 mt-1">Kegiatan Penelitian Lapangan</h3>
+            </div>
+        </div>
+
+        <!-- Foto 2 -->
+        <div class="bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100 group">
+            <div class="h-56 bg-slate-100 overflow-hidden flex items-center justify-center">
+                <!-- Ganti tag div di bawah dengan <img src="foto2.jpg" alt="Kegiatan 2" class="w-full h-full object-cover group-hover:scale-105 transition duration-300"> -->
+                <div class="text-center p-4 text-slate-400">
+                    <i class="fa-solid fa-image text-3xl mb-1 text-blue-500"></i>
+                    <p class="text-xs">Foto 2</p>
+                </div>
+            </div>
+            <div class="p-4">
+                <p class="text-xs text-slate-500">Mei 2026</p>
+                <h3 class="font-semibold text-sm text-slate-800 mt-1">Bimbingan Skripsi</h3>
+            </div>
+        </div>
+
+        <!-- Foto 3 -->
+        <div class="bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100 group">
+            <div class="h-56 bg-slate-100 overflow-hidden flex items-center justify-center">
+                <!-- Ganti tag div di bawah dengan <img src="foto3.jpg" alt="Kegiatan 3" class="w-full h-full object-cover group-hover:scale-105 transition duration-300"> -->
+                <div class="text-center p-4 text-slate-400">
+                    <i class="fa-solid fa-image text-3xl mb-1 text-blue-500"></i>
+                    <p class="text-xs">Foto 3</p>
+                </div>
+            </div>
+            <div class="p-4">
+                <p class="text-xs text-slate-500">Juni 2026</p>
+                <h3 class="font-semibold text-sm text-slate-800 mt-1">Pengolahan Data Google Colab</h3>
+            </div>
+        </div>
+<!-- Foto 4 -->
+        <div class="bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100 group">
+            <div class="h-56 bg-slate-100 overflow-hidden flex items-center justify-center">
+                <!-- Ganti tag div di bawah dengan <img src="foto3.jpg" alt="Kegiatan 3" class="w-full h-full object-cover group-hover:scale-105 transition duration-300"> -->
+                <div class="text-center p-4 text-slate-400">
+                    <i class="fa-solid fa-image text-3xl mb-1 text-blue-500"></i>
+                    <p class="text-xs">Foto 3</p>
+                </div>
+            </div>
+            <div class="p-4">
+                <p class="text-xs text-slate-500">Juni 2026</p>
+                <h3 class="font-semibold text-sm text-slate-800 mt-1">Pengolahan Data Google Colab</h3>
+            </div>
+        </div>
+        <!-- Foto 3 -->
+        <div class="bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100 group">
+            <div class="h-56 bg-slate-100 overflow-hidden flex items-center justify-center">
+                <!-- Ganti tag div di bawah dengan <img src="foto3.jpg" alt="Kegiatan 3" class="w-full h-full object-cover group-hover:scale-105 transition duration-300"> -->
+                <div class="text-center p-4 text-slate-400">
+                    <i class="fa-solid fa-image text-3xl mb-1 text-blue-500"></i>
+                    <p class="text-xs">Foto 3</p>
+                </div>
+            </div>
+            <div class="p-4">
+                <p class="text-xs text-slate-500">Juni 2026</p>
+                <h3 class="font-semibold text-sm text-slate-800 mt-1">Pengolahan Data Google Colab</h3>
+            </div>
+        </div>
+        <!-- Foto 3 -->
+        <div class="bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100 group">
+            <div class="h-56 bg-slate-100 overflow-hidden flex items-center justify-center">
+                <!-- Ganti tag div di bawah dengan <img src="foto3.jpg" alt="Kegiatan 3" class="w-full h-full object-cover group-hover:scale-105 transition duration-300"> -->
+                <div class="text-center p-4 text-slate-400">
+                    <i class="fa-solid fa-image text-3xl mb-1 text-blue-500"></i>
+                    <p class="text-xs">Foto 3</p>
+                </div>
+            </div>
+            <div class="p-4">
+                <p class="text-xs text-slate-500">Juni 2026</p>
+                <h3 class="font-semibold text-sm text-slate-800 mt-1">Pengolahan Data Google Colab</h3>
+            </div>
+        </div>
+        <!-- Foto 3 -->
+        <div class="bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100 group">
+            <div class="h-56 bg-slate-100 overflow-hidden flex items-center justify-center">
+                <!-- Ganti tag div di bawah dengan <img src="foto3.jpg" alt="Kegiatan 3" class="w-full h-full object-cover group-hover:scale-105 transition duration-300"> -->
+                <div class="text-center p-4 text-slate-400">
+                    <i class="fa-solid fa-image text-3xl mb-1 text-blue-500"></i>
+                    <p class="text-xs">Foto 3</p>
+                </div>
+            </div>
+            <div class="p-4">
+                <p class="text-xs text-slate-500">Juni 2026</p>
+                <h3 class="font-semibold text-sm text-slate-800 mt-1">Pengolahan Data Google Colab</h3>
+            </div>
+        </div>
+        <!-- Foto 3 -->
+        <div class="bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100 group">
+            <div class="h-56 bg-slate-100 overflow-hidden flex items-center justify-center">
+                <!-- Ganti tag div di bawah dengan <img src="foto3.jpg" alt="Kegiatan 3" class="w-full h-full object-cover group-hover:scale-105 transition duration-300"> -->
+                <div class="text-center p-4 text-slate-400">
+                    <i class="fa-solid fa-image text-3xl mb-1 text-blue-500"></i>
+                    <p class="text-xs">Foto 3</p>
+                </div>
+            </div>
+            <div class="p-4">
+                <p class="text-xs text-slate-500">Juni 2026</p>
+                <h3 class="font-semibold text-sm text-slate-800 mt-1">Pengolahan Data Google Colab</h3>
+            </div>
+        </div>
+        <!-- Foto 3 -->
+        <div class="bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100 group">
+            <div class="h-56 bg-slate-100 overflow-hidden flex items-center justify-center">
+                <!-- Ganti tag div di bawah dengan <img src="foto3.jpg" alt="Kegiatan 3" class="w-full h-full object-cover group-hover:scale-105 transition duration-300"> -->
+                <div class="text-center p-4 text-slate-400">
+                    <i class="fa-solid fa-image text-3xl mb-1 text-blue-500"></i>
+                    <p class="text-xs">Foto 3</p>
+                </div>
+            </div>
+            <div class="p-4">
+                <p class="text-xs text-slate-500">Juni 2026</p>
+                <h3 class="font-semibold text-sm text-slate-800 mt-1">Pengolahan Data Google Colab</h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Bagian Kontak -->
+    <section id="kontak" class="py-20 bg-white/60 backdrop-blur-sm px-4 relative">
+        <div class="max-w-3xl mx-auto text-center relative z-10">
+            <h2 class="text-3xl font-bold text-gray-900 mb-2">Mari Terhubung</h2>
+            <div class="w-16 h-1 bg-brand-500 mb-8 mx-auto rounded-full"></div>
+            
+            <p class="text-gray-600 mb-10 text-lg">
+                Saya selalu terbuka untuk diskusi mengenai data mining, proyek akademik, maupun peluang kolaborasi lainnya. Silakan hubungi saya melalui:
+            </p>
+
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-6">
+                <!-- Email - Efek Card Hover & Ikon -->
+                <a href="mailto:rima.anjani@emailanda.com" class="flex items-center gap-4 bg-white/90 px-6 py-4 rounded-xl border border-gray-200 hover:border-brand-500 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 w-full sm:w-auto group">
+                    <div class="w-12 h-12 bg-brand-100 text-brand-600 rounded-full flex items-center justify-center text-xl group-hover:bg-brand-500 group-hover:text-white transition-colors duration-300">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="text-left">
+                        <p class="text-sm text-gray-500">Email</p>
+                        <p class="font-medium text-gray-900">Kirim Pesan</p>
+                    </div>
+                </a>
+                
+                <!-- LinkedIn (Contoh) -->
+                <a href="#" class="flex items-center gap-4 bg-white/90 px-6 py-4 rounded-xl border border-gray-200 hover:border-blue-500 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 w-full sm:w-auto group">
+                    <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-xl group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+                        <i class="fab fa-linkedin-in"></i>
+                    </div>
+                    <div class="text-left">
+                        <p class="text-sm text-gray-500">LinkedIn</p>
+                        <p class="font-medium text-gray-900">Rima Anjani</p>
+                    </div>
+                </a>
+                
+                <!-- Github (Contoh) -->
+                <a href="#" class="flex items-center gap-4 bg-white/90 px-6 py-4 rounded-xl border border-gray-200 hover:border-gray-800 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 w-full sm:w-auto group">
+                    <div class="w-12 h-12 bg-gray-200 text-gray-800 rounded-full flex items-center justify-center text-xl group-hover:bg-gray-800 group-hover:text-white transition-colors duration-300">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <div class="text-left">
+                        <p class="text-sm text-gray-500">GitHub</p>
+                        <p class="font-medium text-gray-900">rima-anjani</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-8 text-center relative z-10">
+        <div class="max-w-6xl mx-auto px-4">
+            <p>&copy; 2026 Rima Anjani. Dibuat untuk keperluan Portofolio Profesional.</p>
+        </div>
+    </footer>
+
+    <!-- Script Javascript untuk Kursor Animasi -->
+    <script>
+        const blob = document.getElementById('cursor-blob');
+        
+        // Membaca posisi mouse dan memindahkan elemen #cursor-blob
+        window.addEventListener('mousemove', (e) => {
+            const { clientX, clientY } = e;
+            // Menetapkan posisi x (left) dan y (top) berdasarkan mouse
+            blob.style.left = `${clientX}px`;
+            blob.style.top = `${clientY}px`;
+        });
+    </script>
+
+</body>
+</html>
